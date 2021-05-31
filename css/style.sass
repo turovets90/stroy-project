@@ -1,0 +1,697 @@
+//@import "fancybox"
+@import "bootstrap"
+@import "slick-less"
+
+
+@font-face
+  font-family: 'Montserrat-Light'
+  src: url('../fonts/Montserrat-Light.eot')
+  src: local('Montserrat Light'), local('Montserrat-Light'), url('../fonts/Montserrat-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Montserrat-Light.woff') format('woff'), url('../fonts/Montserrat-Light.ttf') format('truetype')
+  font-weight: 300
+  font-style: normal
+
+$light: 'Montserrat-Light'
+
+@font-face
+  font-family: 'Montserrat-SemiBold'
+  src: url('../fonts/Montserrat-SemiBold.eot')
+  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'), url('../fonts/Montserrat-SemiBold.eot?#iefix') format('embedded-opentype'), url('../fonts/Montserrat-SemiBold.woff') format('woff'), url('../fonts/Montserrat-SemiBold.ttf') format('truetype')
+  font-weight: 600
+  font-style: normal
+$semibold: 'Montserrat-SemiBold'
+
+@font-face
+  font-family: 'Montserrat-Bold'
+  src: url('../fonts/Montserrat-Bold.eot')
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url('../fonts/Montserrat-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Montserrat-Bold.woff') format('woff'), url('../fonts/Montserrat-Bold.ttf') format('truetype')
+  font-weight: bold
+  font-style: normal
+$bold: 'Montserrat-Bold'
+
+@font-face
+  font-family: 'Montserrat-Regular'
+  src: url('../fonts/Montserrat-Regular.eot')
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Montserrat-Regular.woff') format('woff'), url('../fonts/Montserrat-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+$reg: 'Montserrat-Regular'
+
+@font-face
+  font-family: 'Montserrat-Medium'
+  src: url('../fonts/Montserrat-Medium.eot')
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url('../fonts/Montserrat-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Montserrat-Medium.woff') format('woff'), url('../fonts/Montserrat-Medium.ttf') format('truetype')
+  font-weight: 500
+  font-style: normal
+$medium: 'Montserrat-Medium'
+
+@font-face
+  font-family: 'Montserrat-ExtraBold'
+  src: url('../fonts/Montserrat-ExtraBold.eot')
+  src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold'), url('../fonts/Montserrat-ExtraBold.eot?#iefix') format('embedded-opentype'), url('../fonts/Montserrat-ExtraBold.woff') format('woff'), url('../fonts/Montserrat-ExtraBold.ttf') format('truetype')
+  font-weight: 800
+  font-style: normal
+$extrabold: 'Montserrat-ExtraBold'
+
+@font-face
+  font-family: 'Montserrat-Black'
+  src: url('../fonts/Montserrat-Black.eot')
+  src: local('Montserrat Black'), local('Montserrat-Black'), url('../fonts/Montserrat-Black.eot?#iefix') format('embedded-opentype'), url('../fonts/Montserrat-Black.woff') format('woff'), url('../fonts/Montserrat-Black.ttf') format('truetype')
+  font-weight: 900
+  font-style: normal
+$f_blak: 'Montserrat-Black'
+
+
+=b_a()
+  content: ''
+  position: absolute
+
+=m_a()
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+
+=flex()
+  display: flex
+  display: -webkit-flex
+
+=j-center()
+  justify-content: center
+  -webkit-justify-content: center
+
+=j-beetween()
+  justify-content: space-between
+  -webkit-justify-content: space-between
+
+=j-space-around()
+  justify-content: space-around
+  -webkit-justify-content: space-around
+
+=j-end()
+  justify-content: flex-end
+  -webkit-justify-content: flex-end
+
+=j-start()
+  justify-content: flex-start
+  -webkit-justify-content: flex-start
+
+=ai-center()
+  align-items: center
+  -webkit-align-items: center
+
+=ai-start()
+  align-items: flex-start
+  -webkit-align-items: flex-start
+
+=ai-end()
+  align-items: flex-end
+  -webkit-align-items: flex-end
+
+=as-center()
+  align-self: center
+  -webkit-align-self: center
+
+=as-end()
+  align-self: flex-end
+  -webkit-align-self: flex-end
+
+=as-start()
+  align-self: flex-start
+  -webkit-align-self: flex-start
+
+=wrap()
+  flex-wrap: wrap
+  -webkit-flex-wrap: wrap
+
+=col()
+  flex-direction: column
+  -webkit-flex-direction: column
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+=box-shadow($box-shadow)
+  -webkit-box-shadow: $box-shadow
+  -moz-box-shadow: $box-shadow
+  box-shadow: $box-shadow
+
+=transform($transform)
+  transform: $transform
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  -o-transform: $transform
+
+=transition($transition_default)
+  transition: $transition_default
+  -webkit-transition: $transition_default
+  -moz-transition: $transition_default
+  -o-transition: $transition_default
+$transition_default: .3s linear
+
+/*********************************/
+$yellow: #FFCE00
+$black: #090A09
+$grey: #ECECEC
+
+a, button
+  +transition($transition_default)
+
+a
+
+  text-decoration: underline
+  &:hover, &:focus
+
+    text-decoration: none
+
+
+button, input, .form-control
+  outline: none
+
+.form-control
+  &:hover, &:focus
+    box-shadow: none
+    outline: none
+
+
+button
+  cursor: pointer
+  &:hover, &:focus
+    +box-shadow(none)
+    outline: none
+
+img, video
+  max-width: 100%
+*
+  outline: none
+
+ul
+  padding: 0
+  margin: 0
+  li
+    list-style: none
+
+
+.container
+  max-width: 1260px
+  padding-left: 15px
+  padding-right: 15px
+  margin: auto
+
+
+body
+  color: #000
+  font-family: $reg
+  font-size: 16px
+  line-height: 24px
+
+
+
+header
+  position: absolute
+  z-index: 3
+  width: 100%
+  top: 0
+  left: 0
+  padding: 8px 0
+  overflow-x: hidden
+  @media (max-width: 850px)
+    padding: 5px 0
+    border-bottom: 2px solid #fff
+
+.h_row
+  +flex
+  +ai-center
+  +j-beetween
+  .logo
+    width: 120px
+    @media (max-width: 850px)
+      width: auto
+      margin-right: 20px
+    img
+      max-height: 60px
+  .main_menu
+    width: calc(100% - 120px)
+    +flex
+    +ai-center
+    +j-beetween
+    position: relative
+    padding: 8px 0
+    margin-bottom: 45px
+    @media (max-width: 850px)
+      +j-end
+      margin-bottom: 0
+    @media (min-width: 851px)
+      &:before
+        +b_a
+        border: 1px solid #FFFFFF
+        bottom: 0
+        left: 0
+        right: -1000px
+    .mm_btn
+      +flex
+      +ai-center
+      margin-left: 10px
+      > span
+        color: #fff
+        font-size: 12px
+        font-family: $bold
+      .hamburger
+        position: relative
+        width: 25px
+        height: 20px
+        background: none
+        border: 0
+        margin-left: 5px
+        span
+          position: absolute
+          display: inline-block
+          background: $yellow
+          left: 0
+          width: 100%
+          height: 2px
+          +border-radius(2px)
+          &:nth-child(1)
+            top: 0
+          &:nth-child(2)
+            top: 0
+            bottom: 0
+            margin: auto
+          &:nth-child(3)
+            bottom: 0
+      @media (min-width: 851px)
+        display: none
+    .main_menu_container
+      @media (max-width: 850px)
+        position: fixed
+        top: 0
+        right: 0
+        width: 80%
+        height: 100%
+        opacity: 0
+        z-index: 9999
+        padding: 50px 0
+        +transform(translateX(100%))
+        background: #5d5d5d
+        +transition($transition_default)
+        &.open
+          opacity: 1
+          +transform(translateX(0))
+      .mm_close
+        width: 30px
+        height: 30px
+        background: #fff
+        position: absolute
+        left: 0
+        top: 0
+        &:before, &:after
+          +b_a
+          width: 20px
+          height: 1px
+          background: $yellow
+          +m_a
+        &:before
+          +transform(rotate(45deg))
+        &:after
+          +transform(rotate(-45deg))
+
+        @media (min-width: 851px)
+          display: none
+      ul.nav
+        +flex
+        +ai-center
+        +wrap
+        li
+          position: relative
+          margin-left: 35px
+          @media (min-width: 1201px)
+            min-width: 120px
+          @media (max-width: 1200px)
+            margin-left: 20px
+          @media (max-width: 991px)
+            margin-left: 10px
+          @media (max-width: 850px)
+            width: 100%
+            margin-left: 0
+          @media (min-width: 768px)
+            &:hover
+              .sub-menu
+                display: block
+              > a
+                background: $yellow
+                &:after
+                  +transform(rotate(-180deg))
+          .arrow
+            position: absolute
+            right: 0
+            top: 3px
+            width: 30px
+            height: 30px
+            cursor: pointer
+            &.act
+              +transform(rotate(-180deg))
+            &:before
+              +b_a
+              +m_a
+              width: 10px
+              height: 6px
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23FBFBFB'/%3e%3c/svg%3e ")
+
+
+
+            @media (min-width: 851px)
+              display: none
+          a
+            color: #FBFBFB
+            font-size: 16px
+            line-height: 1
+            font-family: $bold
+            text-decoration: none
+            display: inline-block
+            +border-radius(4px)
+            padding: 4px 7px
+            width: 100%
+            @media (max-width: 1200px)
+              font-size: 15px
+            @media (max-width: 991px)
+              font-size: 14px
+            @media (max-width: 850px)
+              font-size: 16px
+              padding: 10px 7px
+            &.has-child
+              @media (min-width: 768px)
+                &:after
+                  content: ''
+                  width: 10px
+                  height: 6px
+                  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23FBFBFB'/%3e%3c/svg%3e ")
+                  display: inline-block
+                  margin-left: 7px
+
+            &:hover
+              @media (min-width: 768px)
+                background: $yellow
+
+
+        .sub-menu
+          display: none
+          @media (max-width: 850px)
+            padding-left: 10px
+          @media (min-width: 851px)
+            position: absolute
+            width: 100%
+            min-width: 120px
+            padding-top: 5px
+
+          li
+            margin: 0 0 5px
+            a
+              background: $yellow
+              @media (min-width: 768px)
+                white-space: nowrap
+              @media (max-width: 850px)
+                background: none
+                padding: 5px
+
+
+
+.h_contacts
+  +flex
+  +ai-center
+  ul
+    margin-right: 65px
+    @media (max-width: 1200px)
+      margin-right: 30px
+    @media (max-width: 991px)
+      margin-right: 10px
+      line-height: 1
+    @media (max-width: 767px)
+      +flex
+      +ai-center
+      margin-right: 0
+    li
+      text-align: center
+      margin-right: 5px
+
+      a
+        &.phone
+          font-size: 16px
+          color: #fff
+          font-family: $bold
+          text-decoration: none
+          @media (max-width: 1200px)
+            font-size: 14px
+          @media (max-width: 767px)
+            width: 40px
+            height: 40px
+            +border-radius(50%)
+            background: $yellow
+            position: relative
+            display: inline-block
+            text-indent: -9999px
+            @media (max-width: 375px)
+              width: 35px
+              height: 35px
+            &:before
+              +b_a
+              +m_a
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-phone-fill' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/%3e%3c/svg%3e")
+              width: 16px
+              height: 16px
+
+          &:hover, &:focus
+            text-decoration: none
+            color: $yellow
+        &.order_call
+          font-size: 12px
+          color: $yellow
+          font-family: $bold
+          text-decoration: none
+          @media (max-width: 767px)
+            width: 40px
+            height: 40px
+            +border-radius(50%)
+            background: $yellow
+            position: relative
+            display: inline-block
+            text-indent: -9999px
+            @media (max-width: 375px)
+              width: 35px
+              height: 35px
+            &:before
+              +b_a
+              +m_a
+              width: 16px
+              height: 16px
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-telephone-fill' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z'/%3e%3c/svg%3e")
+          &:hover, &:focus
+            text-decoration: underline
+
+
+.btn_default
+  font-size: 16px
+  color: #FFFFFF
+  font-family: $bold
+  background: $yellow
+  +border-radius(4px)
+  text-decoration: none
+  border: 0
+  display: inline-block
+  padding: 10px 30px
+  @media (max-width: 1200px)
+    padding: 8px 15px
+    font-size: 14px
+  &:hover, &:focus
+    text-decoration: none
+    color: #fff
+  &.btn_calc
+    @media (max-width: 767px)
+      width: 40px
+      height: 40px
+      position: relative
+      +border-radius(50%)
+      text-indent: -9999px
+      @media (max-width: 375px)
+        width: 35px
+        height: 35px
+      &:before
+        +b_a
+        +m_a
+        width: 16px
+        height: 16px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-calculator-fill' viewBox='0 0 16 16'%3e%3cpath d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5zm0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z'/%3e%3c/svg%3e")
+
+
+
+
+
+.m_slider
+  .slick-dots
+    bottom: -48px
+  .ms_item
+    background-size: cover
+    background-position: center
+    position: relative
+    height: 745px
+    @media (max-width: 1200px)
+      height: 650px
+    @media (max-width: 991px)
+      height: 550px
+    @media (max-width: 767px)
+      height: 500px
+    @media (max-width: 575px)
+      height: 400px
+    &:before
+      +b_a
+      right: 0
+      top: 0
+      height: 100%
+      width: 40%
+      background: rgba(196, 196, 196, 0.2)
+      backdrop-filter: blur(8px)
+    .container
+      position: relative
+      height: 100%
+      +flex
+      +ai-center
+      +j-end
+      z-index: 2
+      .ms_content
+        color: #fff
+        max-width: 60%
+        @media (max-width: 991px)
+          max-width: 80%
+        @media (max-width: 767px)
+          max-width: 100%
+        .ms_title
+          color: #fff
+          font-size: 50px
+          line-height: 56px
+          font-family: $semibold
+          margin-bottom: 20px
+          @media (max-width: 1200px)
+            font-size: 40px
+            line-height: 1.2
+          @media (max-width: 991px)
+            font-size: 35px
+          @media (max-width: 767px)
+            font-size: 30px
+        .ms_desc
+          font-size: 20px
+          line-height: 24px
+          max-width: 500px
+          @media (max-width: 1200px)
+            font-size: 16px
+            line-height: 1.2
+          @media (max-width: 991px)
+            font-size: 14px
+
+
+
+.slick-dots
+  +flex
+  +ai-center
+  +j-center
+  li
+    width: 24px
+    height: 24px
+    border: 1px  solid #fff
+    +border-radius(50%)
+    +flex
+    +ai-center
+    +j-center
+    +transition($transition_default)
+    &.slick-active
+      border: 1px solid $black
+      button
+        width: 7px
+        height: 7px
+    button
+      background: $black
+      width: 8px
+      height: 8px
+      padding: 0
+      +border-radius(50%)
+      +transition($transition_default)
+
+
+      &:before
+        display: none
+
+.first_screen
+  position: relative
+  > .container
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    margin: auto
+    height: 100%
+    z-index: 1
+
+  .first_screen_menu
+    padding-top: 145px
+    .other_menu
+      li
+        margin-bottom: 44px
+        a
+          &.instagram
+            width: 20px
+            height: 20px
+            text-decoration: none
+            display: inline-block
+            position: relative
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.8 0H14.2C17.4 0 20 2.6 20 5.8V14.2C20 15.7383 19.3889 17.2135 18.3012 18.3012C17.2135 19.3889 15.7383 20 14.2 20H5.8C2.6 20 0 17.4 0 14.2V5.8C0 4.26174 0.61107 2.78649 1.69878 1.69878C2.78649 0.61107 4.26174 0 5.8 0ZM5.6 2C4.64522 2 3.72955 2.37928 3.05442 3.05442C2.37928 3.72955 2 4.64522 2 5.6V14.4C2 16.39 3.61 18 5.6 18H14.4C15.3548 18 16.2705 17.6207 16.9456 16.9456C17.6207 16.2705 18 15.3548 18 14.4V5.6C18 3.61 16.39 2 14.4 2H5.6ZM15.25 3.5C15.5815 3.5 15.8995 3.6317 16.1339 3.86612C16.3683 4.10054 16.5 4.41848 16.5 4.75C16.5 5.08152 16.3683 5.39946 16.1339 5.63388C15.8995 5.8683 15.5815 6 15.25 6C14.9185 6 14.6005 5.8683 14.3661 5.63388C14.1317 5.39946 14 5.08152 14 4.75C14 4.41848 14.1317 4.10054 14.3661 3.86612C14.6005 3.6317 14.9185 3.5 15.25 3.5ZM10 5C11.3261 5 12.5979 5.52678 13.5355 6.46447C14.4732 7.40215 15 8.67392 15 10C15 11.3261 14.4732 12.5979 13.5355 13.5355C12.5979 14.4732 11.3261 15 10 15C8.67392 15 7.40215 14.4732 6.46447 13.5355C5.52678 12.5979 5 11.3261 5 10C5 8.67392 5.52678 7.40215 6.46447 6.46447C7.40215 5.52678 8.67392 5 10 5ZM10 7C9.20435 7 8.44129 7.31607 7.87868 7.87868C7.31607 8.44129 7 9.20435 7 10C7 10.7956 7.31607 11.5587 7.87868 12.1213C8.44129 12.6839 9.20435 13 10 13C10.7956 13 11.5587 12.6839 12.1213 12.1213C12.6839 11.5587 13 10.7956 13 10C13 9.20435 12.6839 8.44129 12.1213 7.87868C11.5587 7.31607 10.7956 7 10 7Z' fill='%23FBFBFB'/%3e%3c/svg%3e ")
+            &:hover
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.8 0H14.2C17.4 0 20 2.6 20 5.8V14.2C20 15.7383 19.3889 17.2135 18.3012 18.3012C17.2135 19.3889 15.7383 20 14.2 20H5.8C2.6 20 0 17.4 0 14.2V5.8C0 4.26174 0.61107 2.78649 1.69878 1.69878C2.78649 0.61107 4.26174 0 5.8 0ZM5.6 2C4.64522 2 3.72955 2.37928 3.05442 3.05442C2.37928 3.72955 2 4.64522 2 5.6V14.4C2 16.39 3.61 18 5.6 18H14.4C15.3548 18 16.2705 17.6207 16.9456 16.9456C17.6207 16.2705 18 15.3548 18 14.4V5.6C18 3.61 16.39 2 14.4 2H5.6ZM15.25 3.5C15.5815 3.5 15.8995 3.6317 16.1339 3.86612C16.3683 4.10054 16.5 4.41848 16.5 4.75C16.5 5.08152 16.3683 5.39946 16.1339 5.63388C15.8995 5.8683 15.5815 6 15.25 6C14.9185 6 14.6005 5.8683 14.3661 5.63388C14.1317 5.39946 14 5.08152 14 4.75C14 4.41848 14.1317 4.10054 14.3661 3.86612C14.6005 3.6317 14.9185 3.5 15.25 3.5ZM10 5C11.3261 5 12.5979 5.52678 13.5355 6.46447C14.4732 7.40215 15 8.67392 15 10C15 11.3261 14.4732 12.5979 13.5355 13.5355C12.5979 14.4732 11.3261 15 10 15C8.67392 15 7.40215 14.4732 6.46447 13.5355C5.52678 12.5979 5 11.3261 5 10C5 8.67392 5.52678 7.40215 6.46447 6.46447C7.40215 5.52678 8.67392 5 10 5ZM10 7C9.20435 7 8.44129 7.31607 7.87868 7.87868C7.31607 8.44129 7 9.20435 7 10C7 10.7956 7.31607 11.5587 7.87868 12.1213C8.44129 12.6839 9.20435 13 10 13C10.7956 13 11.5587 12.6839 12.1213 12.1213C12.6839 11.5587 13 10.7956 13 10C13 9.20435 12.6839 8.44129 12.1213 7.87868C11.5587 7.31607 10.7956 7 10 7Z' fill='%23FFCE00'/%3e%3c/svg%3e ")
+
+
+          &.email
+            width: 20px
+            height: 20px
+            display: inline-block
+            position: relative
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20H15V18H10C5.66 18 2 14.34 2 10C2 5.66 5.66 2 10 2C14.34 2 18 5.66 18 10V11.43C18 12.22 17.29 13 16.5 13C15.71 13 15 12.22 15 11.43V10C15 7.24 12.76 5 10 5C7.24 5 5 7.24 5 10C5 12.76 7.24 15 10 15C11.38 15 12.64 14.44 13.54 13.53C14.19 14.42 15.31 15 16.5 15C18.47 15 20 13.4 20 11.43V10C20 4.48 15.52 0 10 0ZM10 13C8.34 13 7 11.66 7 10C7 8.34 8.34 7 10 7C11.66 7 13 8.34 13 10C13 11.66 11.66 13 10 13Z' fill='white'/%3e%3c/svg%3e ")
+            &:hover
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20H15V18H10C5.66 18 2 14.34 2 10C2 5.66 5.66 2 10 2C14.34 2 18 5.66 18 10V11.43C18 12.22 17.29 13 16.5 13C15.71 13 15 12.22 15 11.43V10C15 7.24 12.76 5 10 5C7.24 5 5 7.24 5 10C5 12.76 7.24 15 10 15C11.38 15 12.64 14.44 13.54 13.53C14.19 14.42 15.31 15 16.5 15C18.47 15 20 13.4 20 11.43V10C20 4.48 15.52 0 10 0ZM10 13C8.34 13 7 11.66 7 10C7 8.34 8.34 7 10 7C11.66 7 13 8.34 13 10C13 11.66 11.66 13 10 13Z' fill='%23FFCE00'/%3e%3c/svg%3e ")
+
+          &.download
+            width: 25px
+            height: 35px
+            display: inline-block
+            position: relative
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='25' height='35' viewBox='0 0 25 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M19.4046 8.78125H7.76248C6.69529 8.78125 5.82212 9.65692 5.82212 10.7272V22.4028C5.82212 23.4731 6.69529 24.3488 7.76248 24.3488H19.4046C20.4718 24.3488 21.345 23.4731 21.345 22.4028V10.7272C21.345 9.65692 20.4718 8.78125 19.4046 8.78125ZM11.1581 16.0785C11.1581 16.8861 10.5081 17.538 9.70284 17.538H8.73266V19.4839H7.27739V13.6461H9.70284C10.5081 13.6461 11.1581 14.298 11.1581 15.1055V16.0785ZM16.009 18.0245C16.009 18.832 15.359 19.4839 14.5537 19.4839H12.1283V13.6461H14.5537C15.359 13.6461 16.009 14.298 16.009 15.1055V18.0245ZM19.8897 15.1055H18.4345V16.0785H19.8897V17.538H18.4345V19.4839H16.9792V13.6461H19.8897V15.1055ZM8.73266 16.0785H9.70284V15.1055H8.73266V16.0785ZM3.88177 12.6731H1.94141V26.2947C1.94141 27.365 2.81457 28.2406 3.88177 28.2406H17.4643V26.2947H3.88177V12.6731ZM13.5836 18.0245H14.5537V15.1055H13.5836V18.0245Z' fill='white'/%3e%3cpath d='M3.88176 6.35133H10.673H17.4643M1.94141 1H12.1283H16.7366H18.3748C19.4794 1 20.3748 1.89543 20.3748 3V4.89188' stroke='white' stroke-width='2'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M20.0784 18.5156C19.7034 18.5156 19.3994 18.8196 19.3994 19.1946V29.2169H15.6236C15.5389 29.2169 15.4926 29.3156 15.5467 29.3808L20.1845 34.9621C20.2245 35.0102 20.2983 35.0102 20.3383 34.9621L24.9761 29.3808C25.0303 29.3156 24.9839 29.2169 24.8992 29.2169H21.3394V25.9252V19.5156C21.3394 18.9633 20.8917 18.5156 20.3394 18.5156H20.0784Z' fill='white'/%3e%3c/svg%3e ")
+            &:hover
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='26' height='36' viewBox='0 0 26 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M20.1814 8.78125H8.07347C6.96358 8.78125 6.05549 9.65692 6.05549 10.7272V22.4028C6.05549 23.4731 6.96358 24.3488 8.07347 24.3488H20.1814C21.2912 24.3488 22.1993 23.4731 22.1993 22.4028V10.7272C22.1993 9.65692 21.2912 8.78125 20.1814 8.78125ZM11.6049 16.0785C11.6049 16.8861 10.9289 17.538 10.0915 17.538H9.08246V19.4839H7.56898V13.6461H10.0915C10.9289 13.6461 11.6049 14.298 11.6049 15.1055V16.0785ZM16.6499 18.0245C16.6499 18.832 15.9739 19.4839 15.1364 19.4839H12.6139V13.6461H15.1364C15.9739 13.6461 16.6499 14.298 16.6499 15.1055V18.0245ZM20.6859 15.1055H19.1724V16.0785H20.6859V17.538H19.1724V19.4839H17.6589V13.6461H20.6859V15.1055ZM9.08246 16.0785H10.0915V15.1055H9.08246V16.0785ZM4.03751 12.6731H2.01953V26.2947C2.01953 27.365 2.92762 28.2406 4.03751 28.2406H18.1634V26.2947H4.03751V12.6731ZM14.1274 18.0245H15.1364V15.1055H14.1274V18.0245Z' fill='%23FFCE00'/%3e%3cpath d='M4.03751 6.35133H11.1004H18.1634M2.01953 1H12.6139H17.4066H19.1903C20.2949 1 21.1903 1.89543 21.1903 3V4.89188' stroke='%23FFCE00' stroke-width='2'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M20.8843 18.5156C20.4943 18.5156 20.1782 18.8318 20.1782 19.2217V29.2169H16.2447C16.1591 29.2169 16.1131 29.3175 16.1691 29.3823L20.9954 34.9671C21.0353 35.0133 21.1069 35.0133 21.1468 34.9671L25.9731 29.3823C26.0291 29.3175 25.9831 29.2169 25.8975 29.2169H22.1957V25.9252V19.5156C22.1957 18.9633 21.748 18.5156 21.1957 18.5156H20.8843Z' fill='%23FFCE00'/%3e%3c/svg%3e ")
+
+    .serv_menu
+      position: relative
+      margin-bottom: 114px
+
+      .hamburger2
+        position: relative
+        padding: 0
+        border: 0
+        width: 32px
+        height: 32px
+        background: none
+        cursor: pointer
+        display: inline-block
+        &.white
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 3.9996H27.7172L25.2288 1.6L27.0345 0L32 5L27.0345 10L25.2288 8.4L27.7172 5.99892H0V3.9996Z' fill='white'/%3e%3cpath d='M0 31L32 31' stroke='white' stroke-width='2'/%3e%3cpath d='M0 23H20' stroke='white' stroke-width='2'/%3e%3cpath d='M0 14H20' stroke='white' stroke-width='2'/%3e%3c/svg%3e ")
+          &:hover
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 3.9996H27.7172L25.2288 1.6L27.0345 0L32 5L27.0345 10L25.2288 8.4L27.7172 5.99892H0V3.9996Z' fill='%23FFCE00'/%3e%3cpath d='M0 31L32 31' stroke='%23FFCE00' stroke-width='2'/%3e%3cpath d='M0 23H20' stroke='%23FFCE00' stroke-width='2'/%3e%3cpath d='M0 14H20' stroke='%23FFCE00' stroke-width='2'/%3e%3c/svg%3e ")
+
+
+
+
+.icon
+  &:hover
+    *
+      fill: $yellow
+      stroke: $yellow
+
+
