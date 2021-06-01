@@ -50,12 +50,43 @@ $(document).ready(function(){
         e.stopPropagation();
     });
 
-    $('.main_menu .arrow').click(function(){
+    $('.arrow').click(function(){
         $(this).toggleClass('act').next().slideToggle();
     });
 
+    $('.serv_menu .hamburger2').click(function () {
+        $('.serv_menu_container').slideDown();
+        //$('html').toggleClass('page-noscroll');
 
+        $('.serv_menu_container .sm_close').click(function () {
+            $('.serv_menu_container').slideUp();
+            //$('html').removeClass('page-noscroll');
+        });
+        return false;
+    });
 
+    $(".ma_slider").slick({
+        infinite: true,
+        arrows: true,
+        dots: false,
+        //fade: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
 
 });
 
