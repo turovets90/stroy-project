@@ -88,6 +88,74 @@ $(document).ready(function(){
         ]
     });
 
+
+    $(".d_slider").slick({
+        infinite: true,
+        arrows: false,
+        dots: true,
+        //fade: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '155px',
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    centerPadding: '30px',
+                }
+            },
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    centerPadding: '30px',
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    centerPadding: '0',
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    centerPadding: '30px',
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    centerPadding: '0',
+                    slidesToShow: 1
+                }
+            }
+        ],
+        dotsClass: 'slider-paging-number',
+        customPaging: function (slick) { return (slick.currentSlide + 1) + ' ' + slick.slideCount; }
+    }).on('afterChange', function (event, slick, currentSlide) {
+
+        $(this).find('*[role="tablist"]').find('li').eq(0).text(slick.options.customPaging.call(this, slick, currentSlide));
+
+    });
+
+
+    $(".reviews_slider").slick({
+        infinite: true,
+        arrows: true,
+        dots: true,
+        //autoplay: true,
+        //speed: 3000,
+        //autoplaySpeed: 3000,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+
+
+
 });
 
 
