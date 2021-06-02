@@ -1561,6 +1561,8 @@ footer
         &:hover
           &:before, &:after
             opacity: 1
+          i.zoom
+            opacity: 1
         &:before
           +b_a
           width: 100%
@@ -1575,6 +1577,8 @@ footer
           +m_a
           width: 38px
           height: 38px
+          opacity: 0
+          +transition($transition_default)
           &:before
             +b_a
             left: 0
@@ -1598,6 +1602,8 @@ footer
   padding: 0
   background: none
   margin-bottom: 50px
+  @media (max-width: 1200px)
+    margin-bottom: 30px
 
   li
     margin-bottom: 0 !important
@@ -1633,13 +1639,17 @@ footer
 body
   &:not(.home)
     .main_articles
-      margin-bottom: 13px
+      @media (min-width: 1201px)
+        margin-bottom: 13px
+      @media (max-width: 767px)
+        margin-bottom: 50px
     .m_slider
       .ms_item
         @media (min-width: 992px)
           height: 560px
 
-
+strong, b, .bold
+  font-family: $bold
 
 .about_desc
   color: #000
@@ -1654,3 +1664,36 @@ body
   @media (max-width: 991px)
     padding-bottom: 50px
   @media (max-width: 575px)
+
+
+
+.desc
+  ul.contacts
+    li
+      position: relative
+      padding-left: 0 !important
+      +flex
+      +wrap
+      width: 100%
+      margin-bottom: 55px
+      @media (min-width: 1201px)
+        font-size: 20px
+      @media (max-width: 1200px)
+        margin-bottom: 40px
+      @media (max-width: 991px)
+        margin-bottom: 30px
+
+      strong
+        color: #000000
+        display: inline-block
+        min-width: 17%
+        @media (max-width: 767px)
+          min-width: initial
+          margin-right: 20px
+        @media (max-width: 575px)
+          width: 100%
+
+      &:before
+        display: none
+
+
