@@ -1967,6 +1967,12 @@ form
       @media (max-width: 575px)
         margin-bottom: 15px
 
+      &:hover
+        .news_text
+          .news_desc
+            .read_more
+              opacity: 1
+
       .news_img
         position: relative
         z-index: 2
@@ -2010,6 +2016,7 @@ form
             bottom: 0
             left: 0
             right: -10000px
+            pointer-events: none
 
           &:before
             +b_a
@@ -2028,6 +2035,11 @@ form
           font-family: $bold
           padding-left: 35px
           margin-bottom: 30px
+          text-decoration: none
+          display: inline-block
+          &:hover
+            text-decoration: none
+            color: $yellow
           @media (max-width: 1200px)
             padding-left: 20px
             font-size: 35px
@@ -2058,13 +2070,20 @@ form
             right: -10000px
             left: -10000px
             background: #ECECEC
+            pointer-events: none
 
           @media (min-width: 1201px)
             font-size: 20px
+          .read_more
+            @media (min-width: 1201px)
+              opacity: 0
+              +transition($transition_default)
 
 .pagination
   +flex
   +ai-start
+  @media (min-width: 1201px)
+    padding-left: 100px
   li
     //padding: 0 7px
     a, span
@@ -2072,6 +2091,9 @@ form
       font-size: 20px
       text-decoration: none
       position: relative
+      width: 24px
+      height: 24px
+      display: inline-block
       @media (max-width: 1200px)
         font-size: 18px
       @media (max-width: 767px)
@@ -2080,28 +2102,102 @@ form
         font-size: 14px
 
     a
-      width: 24px
-      height: 24px
-      display: inline-block
+
       &:hover
         text-decoration: none
         color: $yellow
       &.next_page
+        &:hover, &:focus
+          &:before
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L1 9' stroke='%23ffce00'/%3e%3c/svg%3e ")
         &:before
           +b_a
           +m_a
           width: 6px
           height: 10px
           background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L1 9' stroke='%23090A09'/%3e%3c/svg%3e ")
+          +transition($transition_default)
 
 
       &.last_page
+        &:hover, &:focus
+          &:before
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.59625 0L9.07353 6.63801L9.49472 7.01192L9.07353 7.38584L1.59625 14.0238L0.932358 13.276L7.98845 7.01192L0.932358 0.74783L1.59625 0ZM7.10153 0.0317176L14.5788 6.66972L15 7.04364L14.5788 7.41755L7.10153 14.0556L6.43764 13.3077L13.4937 7.04364L6.43764 0.779547L7.10153 0.0317176Z' fill='%23ffce00'/%3e%3c/svg%3e ")
         &:before
           +b_a
           +m_a
           width: 15px
           height: 15px
           background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.59625 0L9.07353 6.63801L9.49472 7.01192L9.07353 7.38584L1.59625 14.0238L0.932358 13.276L7.98845 7.01192L0.932358 0.74783L1.59625 0ZM7.10153 0.0317176L14.5788 6.66972L15 7.04364L14.5788 7.41755L7.10153 14.0556L6.43764 13.3077L13.4937 7.04364L6.43764 0.779547L7.10153 0.0317176Z' fill='%23090A09'/%3e%3c/svg%3e ")
+          +transition($transition_default)
 
 
 
+.page_service_content
+  padding-bottom: 95px
+  +flex
+  +wrap
+  @media (max-width: 1200px)
+    padding-bottom: 75px
+  @media (max-width: 991px)
+    padding-bottom: 50px
+  .sidebar
+    width: 33.5%
+    @media (min-width: 1201px)
+      padding-top: 135px
+    @media (max-width: 767px)
+      width: 100%
+    .sidebar_menu
+      li
+        border-bottom: 2px solid $yellow
+        position: relative
+        padding-left: 43%
+        margin-bottom: 22px
+        @media (max-width: 1200px)
+          padding-left: 30%
+          margin-bottom: 10px
+        @media (max-width: 575px)
+          margin-bottom: 5px
+        &:before
+          +b_a
+          left: 0
+          height: 100%
+          width: 33%
+          background: $yellow
+          +transition($transition_default)
+          @media (max-width: 1200px)
+            width: 23%
+
+        &.active, &:hover
+          a
+            text-decoration: none
+          &:before
+            width: 100%
+        a
+          color: #000
+          font-size: 16px
+          position: relative
+          z-index: 2
+          text-decoration: none
+          display: inline-block
+          padding: 3px 0
+          @media (max-width: 1200px)
+            font-size: 14px
+          @media (max-width: 767px)
+            font-size: 12px
+
+
+  .content
+    width: 66.5%
+    background: $grey
+    padding: 60px 40px 100px
+    @media (max-width: 1200px)
+      padding: 40px 30px 80px
+    @media (max-width: 991px)
+      padding: 30px 20px 50px
+    @media (max-width: 767px)
+      width: 100%
+      padding: 20px
+    h1, .h1
+      @media (min-width: 1201px)
+        margin-left: -165px
