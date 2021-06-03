@@ -1947,4 +1947,161 @@ form
 
 
 
+.news_page
+  overflow: hidden
+  padding-bottom: 100px
+  @media (max-width: 1200px)
+    padding-bottom: 80px
+  @media (max-width: 767px)
+    padding-bottom: 50px
+  .news_page_list
+    .news_item
+      +flex
+      padding-top: 30px
+      margin-bottom: 75px
+      @media (min-width: 1201px)
+        padding-left: 100px
+        margin-bottom: 50px
+      @media (max-width: 767px)
+        margin-bottom: 30px
+      @media (max-width: 575px)
+        margin-bottom: 15px
+
+      .news_img
+        position: relative
+        z-index: 2
+        .img
+          background-size: cover
+          background-position: center
+          width: 288px
+          height: 260px
+          @media (max-width: 1200px)
+            width: 250px
+            height: 250px
+          @media (max-width: 991px)
+            width: 200px
+            height: 200px
+          @media (max-width: 767px)
+            width: 180px
+            height: 180px
+          @media (max-width: 575px)
+            width: 100px
+            height: 100px
+
+      .news_text
+        .news_date
+          position: relative
+          //border-bottom: 1px solid #FFCE00
+          font-size: 14px
+          color: #000
+          padding-left: 60px
+          padding-bottom: 5px
+          margin-bottom: 60px
+          @media (max-width: 1200px)
+            padding-left: 40px
+            margin-bottom: 30px
+          @media (max-width: 991px)
+            margin-bottom: 20px
+          @media (max-width: 767px)
+            margin-bottom: 10px
+          &:after
+            +b_a
+            border-bottom: 1px solid #FFCE00
+            bottom: 0
+            left: 0
+            right: -10000px
+
+          &:before
+            +b_a
+            left: 28px
+            top: 0
+            bottom: 6px
+            margin: auto
+            width: 18px
+            height: 18px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15 2.25H14.25V0.75H12.75V2.25H5.25V0.75H3.75V2.25H3C2.175 2.25 1.5 2.925 1.5 3.75V15.75C1.5 16.575 2.175 17.25 3 17.25H15C15.825 17.25 16.5 16.575 16.5 15.75V3.75C16.5 2.925 15.825 2.25 15 2.25ZM15 15.75H3V6H15V15.75Z' fill='black'/%3e%3c/svg%3e ")
+            @media (max-width: 1200px)
+              left: 10px
+        .news_title
+          color: #000
+          font-size: 40px
+          font-family: $bold
+          padding-left: 35px
+          margin-bottom: 30px
+          @media (max-width: 1200px)
+            padding-left: 20px
+            font-size: 35px
+            margin-bottom: 20px
+          @media (max-width: 991px)
+            font-size: 30px
+          @media (max-width: 767px)
+            font-size: 25px
+            margin-bottom: 10px
+          @media (max-width: 575px)
+            font-size: 20px
+        .news_desc
+          padding: 55px 0 55px 20px
+          background: #ECECEC
+          position: relative
+          @media (max-width: 1200px)
+            padding: 35px 0 35px 20px
+            font-size: 16px
+          @media (max-width: 767px)
+            font-size: 14px
+            padding: 20px
+          @media (max-width: 575px)
+            font-size: 12px
+          &:before
+            +b_a
+            top: 0
+            bottom: 0
+            right: -10000px
+            left: -10000px
+            background: #ECECEC
+
+          @media (min-width: 1201px)
+            font-size: 20px
+
+.pagination
+  +flex
+  +ai-start
+  li
+    //padding: 0 7px
+    a, span
+      color: $black
+      font-size: 20px
+      text-decoration: none
+      position: relative
+      @media (max-width: 1200px)
+        font-size: 18px
+      @media (max-width: 767px)
+        font-size: 16px
+      @media (max-width: 575px)
+        font-size: 14px
+
+    a
+      width: 24px
+      height: 24px
+      display: inline-block
+      &:hover
+        text-decoration: none
+        color: $yellow
+      &.next_page
+        &:before
+          +b_a
+          +m_a
+          width: 6px
+          height: 10px
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L1 9' stroke='%23090A09'/%3e%3c/svg%3e ")
+
+
+      &.last_page
+        &:before
+          +b_a
+          +m_a
+          width: 15px
+          height: 15px
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.59625 0L9.07353 6.63801L9.49472 7.01192L9.07353 7.38584L1.59625 14.0238L0.932358 13.276L7.98845 7.01192L0.932358 0.74783L1.59625 0ZM7.10153 0.0317176L14.5788 6.66972L15 7.04364L14.5788 7.41755L7.10153 14.0556L6.43764 13.3077L13.4937 7.04364L6.43764 0.779547L7.10153 0.0317176Z' fill='%23090A09'/%3e%3c/svg%3e ")
+
+
 
