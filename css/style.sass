@@ -159,10 +159,13 @@ $grey: #ECECEC
 
 a, button
   +transition($transition_default)
+
 a
-  text-decoration: underline
+  text-decoration: none
+  color: $yellow
   &:hover, &:focus
-    text-decoration: none
+    color: $yellow
+    text-decoration: underline
 button, input, .form-control
   outline: none
 
@@ -1329,22 +1332,23 @@ header
     +flex
     +wrap
     +j-beetween
-    .date
-      color: #828282
-      font-size: 12px
-    .stars
-      +flex
-      +j-end
-      +ai-center
-      .star
-        +flex
-        width: 16px
-        height: 15px
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8 0L9.88091 5.41115L15.6085 5.52786L11.0434 8.98885L12.7023 14.4721L8 11.2L3.29772 14.4721L4.95662 8.98885L0.391548 5.52786L6.11909 5.41115L8 0Z' fill='%23FFCE00'/%3e%3c/svg%3e ")
-        &.empty
-          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8 0L9.88091 5.41115L15.6085 5.52786L11.0434 8.98885L12.7023 14.4721L8 11.2L3.29772 14.4721L4.95662 8.98885L0.391548 5.52786L6.11909 5.41115L8 0Z' fill='%23C4C4C4'/%3e%3c/svg%3e ")
 
+.date
+  color: #828282
+  font-size: 12px
 
+.stars
+  +flex
+  +j-end
+  +ai-center
+  .star
+    +flex
+    width: 16px
+    height: 15px
+    margin: 0 6px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8 0L9.88091 5.41115L15.6085 5.52786L11.0434 8.98885L12.7023 14.4721L8 11.2L3.29772 14.4721L4.95662 8.98885L0.391548 5.52786L6.11909 5.41115L8 0Z' fill='%23FFCE00'/%3e%3c/svg%3e ")
+    &.empty
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8 0L9.88091 5.41115L15.6085 5.52786L11.0434 8.98885L12.7023 14.4721L8 11.2L3.29772 14.4721L4.95662 8.98885L0.391548 5.52786L6.11909 5.41115L8 0Z' fill='%23C4C4C4'/%3e%3c/svg%3e ")
 .show_all
   display: inline-block
   color: #766F6F
@@ -1870,3 +1874,77 @@ form
 .desc
   @media (max-width: 767px)
     font-size: 14px
+
+
+
+.reviews_page_list
+  margin-bottom: 50px
+  @media (max-width: 767px)
+    margin-bottom: 30px
+  .reviews_item
+    +flex
+    +wrap
+    .img_box
+      width: 35%
+      background: #ECECEC
+      text-align: center
+      padding: 0 20px 48px
+      @media (max-width: 767px)
+        padding: 0 10px 30px
+      @media (max-width: 575px)
+        padding: 0 5px 20px
+
+      img
+        max-height: 400px
+        +box-shadow(4px 4px 15px rgba(0, 0, 0, 0.25))
+    .text_box
+      width: 65%
+      padding-left: 25px
+      @media (max-width: 767px)
+        padding-left: 10px
+      .review_author
+        color: #000
+        font-size: 24px
+        font-family: $bold
+        margin-bottom: 35px
+        margin-top: 10px
+        @media (max-width: 1200px)
+          font-size: 22px
+          margin-bottom: 25px
+        @media (max-width: 767px)
+          font-size: 18px
+          margin-bottom: 20px
+          margin-top: 0
+        @media (max-width: 575px)
+          margin-bottom: 10px
+          font-size: 16px
+
+      .review_text
+        margin-bottom: 5px
+        @media (max-width: 767px)
+          font-size: 14px
+        @media (max-width: 575px)
+          font-size: 12px
+      .date
+        margin-bottom: 5px
+      .stars
+        margin-bottom: 10px
+        @media (max-width: 767px)
+          +j-start
+          .star
+            margin: 0 2px
+            &:first-child
+              margin-left: 0
+      .line
+        margin: 70px 0
+        @media (max-width: 1200px)
+          margin: 50px 0
+        @media (max-width: 767px)
+          margin: 30px 0
+        &:before
+          width: 80px
+
+
+
+
+
